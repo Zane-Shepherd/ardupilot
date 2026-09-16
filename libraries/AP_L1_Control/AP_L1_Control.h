@@ -36,6 +36,9 @@ public:
     int32_t nav_roll_cd(void) const override;
     float lateral_acceleration(void) const override;
 
+    // Override the lateral acceleration demand for a mode-specific controller.
+    void set_lateral_acceleration(float acceleration);
+
     // return the desired track heading angle(centi-degrees)
     int32_t nav_bearing_cd(void) const override;
 

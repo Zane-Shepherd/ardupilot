@@ -890,6 +890,7 @@ const Plane::TerrainLookupTable Plane::Terrain_lookup[] = {
 #if MODE_AUTOLAND_ENABLED
     {Mode::Number::AUTOLAND, terrain_bitmask::AUTOLAND},
 #endif
+    {Mode::Number::HOMING, terrain_bitmask::HOMING},
 };
 
 bool Plane::terrain_enabled_in_current_mode() const

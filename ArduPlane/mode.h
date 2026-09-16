@@ -70,6 +70,7 @@ public:
 #if MODE_AUTOLAND_ENABLED
         AUTOLAND      = 26,
 #endif
+        HOMING        = 27,
 
     // Mode number 30 reserved for "offboard" for external/lua control.
     };
@@ -1087,3 +1088,38 @@ protected:
 };
 
 #endif
+class ModeHoming : public Mode
+{
+public:
+
+    Number mode_number() const override { return Number::HOMING; }
+    const char *name() const override { return "Homing"; }
+    const char *name4() const override { return "HOMG"; }
+
+    // methods that affect movement of the vehicle in this mode
+    void update() override;
+
+    void navigate() override;
+
+    virtual bool is_guided_mode() const override { return true; }
+
+    bool allows_throttle_nudging() const override { return true; }
+
+    bool does_auto_navigation() const override { return true; }
+
+    bool does_auto_throttle() const override { return true; }
+
+#if AP_PLANE_SYSTEMID_ENABLED
+    // does this mode support fixed wing systemid?
+    bool supports_fw_systemid() const override { return true; }
+#endif
+
+protected:
+
+    bool _enter() override;
+    void _exit() override;
+    bool _pre_arm_checks(size_t buflen, char *buffer) const override { return true; }
+#if AP_QUICKTUNE_ENABLED
+    bool supports_quicktune() const override { return true; }
+#endif
+};

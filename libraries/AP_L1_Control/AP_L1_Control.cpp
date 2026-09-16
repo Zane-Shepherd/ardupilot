@@ -103,6 +103,11 @@ float AP_L1_Control::lateral_acceleration(void) const
     return _latAccDem;
 }
 
+void AP_L1_Control::set_lateral_acceleration(const float acceleration)
+{
+    _latAccDem = acceleration;
+}
+
 int32_t AP_L1_Control::nav_bearing_cd(void) const
 {
     return wrap_180_cd(rad_to_cd(_nav_bearing));

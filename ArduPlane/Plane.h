@@ -83,6 +83,7 @@
 #include <AP_Landing/AP_Landing.h>
 #include <AP_LandingGear/AP_LandingGear.h>     // Landing Gear library
 #include <AP_Follow/AP_Follow.h>
+#include "AP_losRate.h"
 #include <AP_ExternalControl/AP_ExternalControl_config.h>
 #if AP_EXTERNAL_CONTROL_ENABLED
 #include "AP_ExternalControl_Plane.h"
@@ -177,6 +178,7 @@ public:
 #if MODE_AUTOLAND_ENABLED
     friend class ModeAutoLand;
 #endif
+    friend class ModeHoming;
 #if AP_EXTERNAL_CONTROL_ENABLED
     friend class AP_ExternalControl_Plane;
 #endif
@@ -240,6 +242,7 @@ private:
 
     AP_TECS TECS_controller{ahrs, aparm, landing, MASK_LOG_TECS};
     AP_L1_Control L1_controller{ahrs, &TECS_controller};
+    AP_LOSRate los_rate;
 
     // Attitude to servo controllers
     AP_RollController rollController{aparm};
@@ -331,6 +334,7 @@ private:
 #if HAL_SOARING_ENABLED
     ModeThermal mode_thermal;
 #endif
+    ModeHoming mode_homing;
 
 #if AP_QUICKTUNE_ENABLED
     AP_Quicktune quicktune;
@@ -870,6 +874,7 @@ private:
         QLAND           = 1U << 10,
         QLOITER         = 1U << 11,
         AUTOLAND        = 1U << 12,
+        HOMING          = 1U << 13,
     };
     struct TerrainLookupTable{
        Mode::Number mode_num;
