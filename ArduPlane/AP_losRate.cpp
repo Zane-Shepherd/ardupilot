@@ -27,7 +27,7 @@ AP_LOSRate::Acceleration AP_LOSRate::update(const Vector3f &interceptor_position
 	if (!(range_squared > FLT_EPSILON) || !isfinite(range_squared) ||
 		!isfinite(interceptor_attitude.length_squared())) {
 		_previous_r_vector = r_vector;
-		return result;
+		return acceleration;
 	}
 
 	const Vector3f relative_velocity = (r_vector - _previous_r_vector) / dt;

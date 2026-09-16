@@ -1099,8 +1099,6 @@ public:
     // methods that affect movement of the vehicle in this mode
     void update() override;
 
-    void navigate() override;
-
     virtual bool is_guided_mode() const override { return true; }
 
     bool allows_throttle_nudging() const override { return true; }
