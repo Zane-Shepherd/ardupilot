@@ -1,0 +1,10 @@
+2026-09-16 16:08:39: Confirm batteries charged - CHECKED
+2026-09-16 16:08:40: No physical damage to airframe - CHECKED
+2026-09-16 16:08:40: All electronics present and connected - CHECKED
+2026-09-16 16:08:41: Payload loaded - CHECKED
+2026-09-16 16:08:42: Ground station operational - CHECKED
+2026-09-16 16:08:45: Engine throttle responsive - CHECKED
+2026-09-16 16:08:46: Runway clear - CHECKED
+2026-09-16 16:08:47: Radio links OK - CHECKED
+2026-09-16 16:08:47: Antenna tracker check - CHECKED
+2026-09-16 16:08:48: GCS stable - CHECKED

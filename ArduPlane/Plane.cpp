@@ -602,6 +602,17 @@ void Plane::set_flight_stage(AP_FixedWing::FlightStage fs)
 #endif
 }
 
+void Plane::set_relative_target_altitude(int32_t altitude_cm)
+{
+    target_altitude.amsl_cm = altitude_cm;
+    // reset the offset to ensure that the target altitude is based on the intruder
+    target_altitude.offset_cm = 0;
+    // turn off terrain following to ensure that the target altitude is based on the intruder
+#if AP_TERRAIN_AVAILABLE
+    target_altitude.terrain_following = false;
+#endif
+}
+
 void Plane::update_alt()
 {
     barometer.update();

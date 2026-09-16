@@ -10,9 +10,7 @@ public:
         bool valid = false;
     };
 
-    Acceleration update(const Vector3f &interceptor_position,
-                        const Vector3f &intruder_position,
-                        const Vector3f &interceptor_velocity,
+    Acceleration update(const Vector3f &intruder_position,
                         const Quaternion &interceptor_attitude,
                         float dt);
 

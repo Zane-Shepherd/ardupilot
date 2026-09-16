@@ -2,16 +2,12 @@
 
 #include "AP_losRate.h"
 
-AP_LOSRate::Acceleration AP_LOSRate::update(const Vector3f &interceptor_position,
-                                            const Vector3f &intruder_position,
-                                            const Vector3f &interceptor_velocity,
+AP_LOSRate::Acceleration AP_LOSRate::update(const Vector3f &intruder_position,
                                             const Quaternion &interceptor_attitude,
                                             const float dt)
 {
-	(void)interceptor_velocity;
-
 	Acceleration acceleration;
-	const Vector3f r_vector = intruder_position - interceptor_position;
+	const Vector3f r_vector = intruder_position;
 
 	if (!_have_previous_position) {
 		_previous_r_vector = r_vector;

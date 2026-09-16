@@ -914,6 +914,7 @@ private:
     void setup_terrain_target_alt(Location &loc);
     int32_t adjusted_altitude_cm(void);
     int32_t adjusted_relative_altitude_cm(void);
+    void set_relative_target_altitude(int32_t altitude_cm);
     float mission_alt_offset(void);
     void reset_alt_offset(bool force = false);
     float height_above_target(void);

@@ -1098,6 +1098,7 @@ public:
 
     // methods that affect movement of the vehicle in this mode
     void update() override;
+    void update_target_altitude() override;
 
     virtual bool is_guided_mode() const override { return true; }
 
@@ -1117,6 +1118,9 @@ protected:
     bool _enter() override;
     void _exit() override;
     bool _pre_arm_checks(size_t buflen, char *buffer) const override { return true; }
+
+    Location intruder_path_location;
+    int32_t target_altitude_cm;
 #if AP_QUICKTUNE_ENABLED
     bool supports_quicktune() const override { return true; }
 #endif
